@@ -3,7 +3,7 @@ FROM Clients
 
 
 INSERT INTO Clients(FirstName, LastName, City, PhoneNumber, EMail)
-VALUES ('Maria', 'Wójcik', 'Kraków', '500000000', 'e@gmail.com')
+VALUES ('Maria', 'WÃ³jcik', 'KrakÃ³w', '500000000', 'e@gmail.com')
 
 
 UPDATE Clients
@@ -15,7 +15,7 @@ DELETE FROM Clients
 WHERE Id = 5
 
 
-SELECT Number AS [Numer faktury], FirstName AS Imiê, LastName AS Nazwisko
+SELECT Number AS [Numer faktury], FirstName AS ImiÃª, LastName AS Nazwisko
 FROM Invoices i
 INNER JOIN Clients c ON c.Id = i.ClientNumber
 
@@ -26,13 +26,13 @@ INNER JOIN Invoices i ON i.Id = inp.InvoiceId
 INNER JOIN Products p ON p.Id = inp.ProductId
 
 
-SELECT Number AS [Numer faktury], SUM(Quantity) AS [Iloœæ sztuk]
+SELECT Number AS [Numer faktury], SUM(Quantity) AS [IloÅ“Ã¦ sztuk]
 FROM InvoicePositions inp
 INNER JOIN Invoices i ON i.Id = inp.InvoiceId
 GROUP BY Number
 
 
-SELECT Number AS [Numer faktury], SUM(Price) AS [Cena ca³kowita]
+SELECT Number AS [Numer faktury], SUM(Quantity * Price) AS [Cena caÂ³kowita]
 FROM InvoicePositions inp
 INNER JOIN Invoices i ON i.Id = inp.InvoiceId
 INNER JOIN Products p ON p.Id = inp.ProductId
